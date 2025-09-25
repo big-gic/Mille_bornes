@@ -1,5 +1,4 @@
 package cartes;
-import cartes.Type;
 
 public abstract class Probleme extends Carte {
 
