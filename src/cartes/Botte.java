@@ -9,7 +9,7 @@ public class Botte extends Probleme {
 
 	@Override
 	public String toString() {
-		return "Parade de type"+getType().getBotte();
+		return getType().getBotte();
 	}
 	
 

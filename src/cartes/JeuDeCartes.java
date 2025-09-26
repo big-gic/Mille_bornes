@@ -2,8 +2,15 @@ package cartes;
 
 public class JeuDeCartes {
 	
-	private Configuration[] typesDeCartes = new Configuration[19];
+	private Configuration[] typesDeCartes;
 	private int nbConfigurations = 0;
+	
+	
+	
+	public JeuDeCartes() {
+		super();
+		typesDeCartes = new Configuration[21];
+	}
 
 	public String affichageJeuDeCartes() {
 		StringBuilder chaine = new StringBuilder();
@@ -28,7 +35,7 @@ public class JeuDeCartes {
 	
 	
 	public void ajouterConfiguration(Carte carte, int nbExemplaires) {
-		if (nbConfigurations >= 19) {
+		if (nbConfigurations >= 21) {
 			throw new IllegalStateException("Le jeu est déjà plein !");
 		}
 	    typesDeCartes[nbConfigurations] = new Configuration(carte, nbExemplaires);
