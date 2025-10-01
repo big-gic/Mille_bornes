@@ -45,12 +45,8 @@ public class JeuDeCartes {
 	}
 	
 	
-	public void ajouterConfiguration(Carte carte, int nbExemplaires) { 
-		if (nbConfigurations >= 21) {
-			throw new IllegalStateException("Le jeu est déjà plein !");
-		}
-	    typesDeCartes[nbConfigurations] = new Configuration(carte, nbExemplaires);
-	    nbConfigurations++;
+	public boolean checkCount(Carte[] cartes) {
+		//configuration vs cartes
 	}
 
 
