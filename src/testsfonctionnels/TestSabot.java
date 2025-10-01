@@ -1,7 +1,5 @@
 package testsfonctionnels;
 
-import java.util.Iterator;
-
 import cartes.Attaque;
 import cartes.Borne;
 import cartes.Carte;
