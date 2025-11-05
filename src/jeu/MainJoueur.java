@@ -24,10 +24,10 @@ public class MainJoueur {
 
 	@Override
 	public String toString() {
-		String chaine = "";
+		StringBuilder chaine = new StringBuilder();
 		for (Iterator<Carte> it = main.iterator(); it.hasNext();)
-			chaine = chaine + it.next().toString();
-		return chaine;
+			chaine.append(it.next().toString());
+		return chaine.toString();
 	}
 	
 	
