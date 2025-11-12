@@ -48,10 +48,10 @@ public class ZoneDeJeu {
 		if (carte instanceof Borne) {
 			collectionBornes.add((Borne)carte);
 		}
-		if (carte instanceof Limite) {
+		else if (carte instanceof Limite) {
 			pileLimite.add((Limite)carte);
 		}
-		if (carte instanceof Bataille) {
+		else if (carte instanceof Bataille) {
 			pileBataille.add((Bataille)carte);
 		}
 		else {
@@ -83,18 +83,19 @@ public class ZoneDeJeu {
 	
 	private boolean estDepotFeuVertAutorise() {
 		if (!estPrioritaire()) {
-			Bataille sommet = pileBataille.get(pileBataille.size()-1);
 			if (pileBataille.isEmpty()) {
 				return true;
-			}
-			if (sommet.equals(new Attaque(Type.FEU))) {
-				return true;
-			}
-			if (sommet instanceof Parade && !pileBataille.get(pileBataille.size()-1).getType().equals(Type.FEU)) {
-				return true;
-			}
-			if (sommet instanceof Attaque && bottes.contains(new Botte(sommet.getType()))) {
-				return true;
+			}else {
+				Bataille sommet = pileBataille.get(pileBataille.size()-1);
+				if (sommet.equals(new Attaque(Type.FEU))) {
+					return true;
+				}
+				if (sommet instanceof Parade && !pileBataille.get(pileBataille.size()-1).getType().equals(Type.FEU)) {
+					return true;
+				}
+				if (sommet instanceof Attaque && bottes.contains(new Botte(sommet.getType()))) {
+					return true;
+				}
 			}
 		}
 		return false;
@@ -116,15 +117,14 @@ public class ZoneDeJeu {
 	
 	private boolean estDepotBatailleAutorise(Bataille bataille) {
 		if (!bottes.contains(new Botte(bataille.getType()))) {
-			Bataille sommet = pileBataille.get(pileBataille.size()-1);
 			if (bataille instanceof Attaque) {
-				return !pileBataille.isEmpty() && sommet instanceof Parade;
+				return !pileBataille.isEmpty() && pileBataille.get(pileBataille.size()-1) instanceof Parade;
 			}
 			if (bataille.getType().equals(Type.FEU)) {
 				return estDepotFeuVertAutorise();
 			}
-			return !pileBataille.isEmpty() && bataille.getType().equals(sommet.getType())
-					&& sommet instanceof Attaque;
+			return !pileBataille.isEmpty() && bataille.getType().equals(pileBataille.get(pileBataille.size()-1).getType())
+					&& pileBataille.get(pileBataille.size()-1) instanceof Attaque;
 		}
 		return false;
 	}

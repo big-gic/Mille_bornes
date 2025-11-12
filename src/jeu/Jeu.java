@@ -21,10 +21,10 @@ public class Jeu {
 	private Set<Joueur> joueurs = new LinkedHashSet<>();
 	
 	public Jeu() {
-		Carte[] cartes = new JeuDeCartes().donnerCartes();
+		Carte[] cartes = (new JeuDeCartes()).donnerCartes();
 		List<Carte> listeCartes = new ArrayList<>();
 		Collections.addAll(listeCartes, cartes);
-		GestionCartes.melanger(listeCartes);
+		listeCartes = GestionCartes.melanger(listeCartes);
 		cartes = listeCartes.toArray(new Carte[0]);
 		sabot = new Sabot(cartes);
 	}

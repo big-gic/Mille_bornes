@@ -15,8 +15,8 @@ import cartes.Limite;
 public class Joueur {
 	
 	private String nom;
-	private ZoneDeJeu zoneDeJeu;
-	private MainJoueur main;
+	private ZoneDeJeu zoneDeJeu = new ZoneDeJeu();
+	private MainJoueur main = new MainJoueur(new ArrayList<Carte>());
 	
 	public Joueur(String nom) {
 		this.nom = nom;
