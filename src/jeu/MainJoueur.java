@@ -26,8 +26,12 @@ public class MainJoueur {
 	public String toString() {
 		StringBuilder chaine = new StringBuilder();
 		for (Iterator<Carte> it = main.iterator(); it.hasNext();)
-			chaine.append(it.next().toString());
+			chaine.append(it.next().toString()+" ");
 		return chaine.toString();
+	}
+
+	public List<Carte> getMain() {
+		return main;
 	}
 	
 	
